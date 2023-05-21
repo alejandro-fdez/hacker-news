@@ -15,6 +15,13 @@ module.exports = {
     project: './tsconfig.json',
   },
   plugins: ['react-refresh', 'eslint-plugin-html', 'prettier'],
+  settings: {
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+      },
+    },
+  },
   rules: {
     'react-refresh/only-export-components': 'warn',
     'react/react-in-jsx-scope': 0,

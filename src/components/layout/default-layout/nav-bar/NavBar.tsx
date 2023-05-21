@@ -1,6 +1,6 @@
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { cx } from '../../../../utils/dom';
+import { cx } from '@/utils/dom';
 
 const navigation = [
   { name: 'New', href: '#', current: true },
