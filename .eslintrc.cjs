@@ -19,6 +19,10 @@ module.exports = {
     'react-refresh/only-export-components': 'warn',
     'react/react-in-jsx-scope': 0,
     'import/prefer-default-export': 'off',
+    '@typescript-eslint/no-explicit-any': 0,
+    'no-plusplus': 0,
+    'no-restricted-syntax': 0,
+    'no-continue': 0,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'react/function-component-definition': [
       2,
