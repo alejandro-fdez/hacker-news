@@ -5,7 +5,9 @@ import {
   Route,
 } from 'react-router-dom';
 import { HomePage } from './pages/home/HomePage';
-import { DefaultLayout } from './components/layouts/default-layout/DefaultLayout';
+import { DefaultLayout } from './components/layout/default-layout/DefaultLayout';
+
+import './styles/index.scss';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
