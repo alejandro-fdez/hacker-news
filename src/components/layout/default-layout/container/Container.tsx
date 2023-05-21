@@ -1,5 +1,5 @@
 import { cx } from '@/utils/dom';
-import { WithBasicProps } from '@/utils/types';
+import { WithBasicProps } from '@/types/component.types';
 
 export const Container = ({ children, className }: WithBasicProps) => {
   return (

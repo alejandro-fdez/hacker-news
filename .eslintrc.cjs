@@ -27,6 +27,7 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/no-non-null-assertion': 0,
     'no-plusplus': 0,
     'no-restricted-syntax': 0,
     'no-continue': 0,
