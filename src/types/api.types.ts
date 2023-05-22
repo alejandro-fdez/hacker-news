@@ -16,5 +16,6 @@ export type ItemFullType = {
   parts: number[];
 };
 
-export type StoryList = ItemFullType['id'][];
+export type StoryListType = ItemFullType['id'][];
 export type StoryType = ItemFullType['type'];
+export type ItemIdType = ItemFullType['id'];

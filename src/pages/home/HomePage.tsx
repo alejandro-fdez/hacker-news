@@ -1,24 +1,17 @@
-import { useRouter } from '@/hooks/useRouter';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { StoryList } from '@/types/api.types';
+import { useGetTopStories } from '@/api/useGetTopStories';
+import { useGetItems } from '@/api/useGetItem';
+import { GridList } from '@/components/grid-list/GridList';
+import { Card } from '@/components/card/Card';
 
 export const HomePage = () => {
-  const {
-    currentPageData: { api },
-  } = useRouter();
-  const [stories, setStories] = useState<StoryList | null>(null);
+  const { data: stories } = useGetTopStories();
+  const { data: itemList } = useGetItems(stories?.slice(0, 20));
 
-  useEffect(() => {
-    const fetchStories = async () => {
-      if (!api || stories?.length) return;
-      const response = await axios.get<StoryList>(api);
-      setStories(response.data ?? []);
-    };
-
-    fetchStories();
-  }, [api, stories?.length]);
-
-  console.log(stories);
-  return <h1>HomePage</h1>;
+  return (
+    <GridList>
+      {itemList.map((item) => (
+        <Card key={item.id} data={item} />
+      ))}
+    </GridList>
+  );
 };
