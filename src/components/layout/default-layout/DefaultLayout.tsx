@@ -5,7 +5,7 @@ import { Container } from './container/Container';
 export const DefaultLayout = () => (
   <div>
     <NavBar />
-    <Container>
+    <Container className="py-5">
       <Outlet />
     </Container>
   </div>

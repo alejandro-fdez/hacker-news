@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import { useQueries, useQuery } from '@tanstack/react-query';
 import { ItemFullType, ItemIdType, StoryListType } from '@/types/api.types';
+import { useInfinitePaginationController } from '@/hooks/useInfinitePaginationController';
 
 export const GET_ITEM_KEY = (itemId: ItemIdType) => ['GET_ITEM', itemId];
 
@@ -71,5 +72,17 @@ export const useGetFullItemListInfinitePagination = ({
     setIndex((prev) => prev + numItems);
   }, [isCompleted, isFetched, isLoading, numItems]);
 
-  return { itemList, isLoading, isFetched, isCompleted, handleOnNextPage };
+  const inView = useInfinitePaginationController({
+    isCompleted,
+    onLoadMore: handleOnNextPage,
+  });
+
+  return {
+    itemList,
+    isLoading,
+    isFetched,
+    isCompleted,
+    handleOnNextPage,
+    ...inView,
+  };
 };

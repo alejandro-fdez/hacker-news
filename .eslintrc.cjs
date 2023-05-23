@@ -25,6 +25,7 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': 'warn',
     'react/react-in-jsx-scope': 0,
+    'react/jsx-props-no-spreading': 0,
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-non-null-assertion': 0,

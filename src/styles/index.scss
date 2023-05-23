@@ -6,3 +6,7 @@
   --primary-red: #ff6600;
   --primary-red-dark: #da5700;
 }
+
+h1 {
+  @apply mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl;
+}
