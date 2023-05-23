@@ -22,7 +22,7 @@ export const HomePage = () => {
   });
 
   return (
-    <GridList ref={ref} isLoading={isLoading}>
+    <GridList loaderRef={ref} isLoading={isLoading}>
       {itemList.map((item) => (
         <Card key={item.id} data={item} />
       ))}
