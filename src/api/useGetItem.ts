@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import { useQueries, useQuery } from '@tanstack/react-query';
 import { ItemFullType, ItemIdType, StoryListType } from '@/types/api.types';
@@ -32,10 +32,44 @@ export const useGetItems = (itemIds: StoryListType | undefined = []) => {
 
   return useMemo(() => {
     const isLoading = useGetItemList.some((query) => query.isLoading);
-    const isFetched = !isLoading;
+    const isFetched = useGetItemList.length
+      ? useGetItemList.every((query) => query.isFetched)
+      : false;
     const data = isFetched
       ? useGetItemList.map(({ data: dataQuery }) => dataQuery!.data)
       : [];
     return { isLoading, isFetched, data };
   }, [useGetItemList]);
+};
+
+export const useGetFullItemListInfinitePagination = ({
+  itemIds = [],
+  numItems = 10,
+}: {
+  itemIds: StoryListType | undefined;
+  numItems?: number;
+}) => {
+  const lastIndex = useRef(-1);
+  const [index, setIndex] = useState(0);
+  const [itemList, setItemList] = useState<ItemFullType[]>([]);
+
+  const partialItemIds = itemIds.slice(index, index + numItems);
+
+  const { isFetched, isLoading, data } = useGetItems(partialItemIds);
+
+  const isCompleted = index >= itemIds.length;
+
+  useEffect(() => {
+    if (!data.length || !isFetched || lastIndex.current >= index) return;
+
+    setItemList((prev) => prev.concat(data));
+    lastIndex.current = index;
+  }, [data, index, isFetched]);
+
+  const handleOnNextPage = useCallback(() => {
+    if (isLoading || !isFetched || isCompleted) return;
+    setIndex((prev) => prev + numItems);
+  }, [isCompleted, isFetched, isLoading, numItems]);
+
+  return { itemList, isLoading, isFetched, isCompleted, handleOnNextPage };
 };
