@@ -1,7 +1,7 @@
 import { useGetTopStories } from '@/api/useGetTopStories';
 import { useGetFullItemListInfinitePagination } from '@/api/useGetItem';
 import { GridListPaginated } from '@/components/grid-list-paginated/GridListPaginated';
-import { CardArticle } from '@/components/card/CardArticle/CardArticle';
+import { CardArticle } from '@/components/card/card-article/CardArticle';
 
 export const HomePage = () => {
   const { data: itemIds, isLoading: isLoadingStories } = useGetTopStories();

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { LoadingStoriesProps } from './LoadingStories.types';
-import { CardSkeleton } from '../card/CardSkeleton/CardSkeleton';
+import { CardSkeleton } from '../card/card-skeleton/CardSkeleton';
 
 export const LoadingStories = forwardRef<HTMLDivElement, LoadingStoriesProps>(
   ({ isLoading }, ref) => {

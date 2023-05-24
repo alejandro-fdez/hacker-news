@@ -22,7 +22,7 @@ export const CardHeader = ({ time, type }: CardHeaderProps) => {
         {getFormattedDate(time)}
       </span>
       {type && (
-        <div className="px-3 py-1 text-xs font-semibold text-white bg-gray-500 rounded cursor-none">
+        <div className="px-3 py-1 text-xs font-semibold text-white bg-gray-500 rounded cursor-default">
           {type}
         </div>
       )}

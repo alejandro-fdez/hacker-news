@@ -1,7 +1,7 @@
 import { useGetNewStories } from '@/api/useGetNewStories';
 import { useGetFullItemListInfinitePagination } from '@/api/useGetItem';
 import { GridListPaginated } from '@/components/grid-list-paginated/GridListPaginated';
-import { CardArticle } from '@/components/card/CardArticle/CardArticle';
+import { CardArticle } from '@/components/card/card-article/CardArticle';
 
 export const NewsPage = () => {
   const { data: itemIds } = useGetNewStories();
