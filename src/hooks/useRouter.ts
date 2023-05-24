@@ -8,7 +8,7 @@ export const useRouter = () => {
   const getIsCurrentPage = (page: string) => page === pathname;
 
   const currentPageData = useMemo(
-    () => ROUTER_DATA.find((pageData) => pageData.path === pathname)!,
+    () => ROUTER_DATA.find((pageData) => pageData.path === pathname),
     [pathname]
   );
 

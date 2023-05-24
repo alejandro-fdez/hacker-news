@@ -5,9 +5,9 @@ import { NavBar } from './nav-bar/NavBar';
 import { Container } from './container/Container';
 
 export const DefaultLayout = () => {
-  const {
-    currentPageData: { title },
-  } = useRouter();
+  const { currentPageData } = useRouter();
+
+  const title = currentPageData?.title;
 
   return (
     <>

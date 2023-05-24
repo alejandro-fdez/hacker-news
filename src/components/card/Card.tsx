@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom';
 import { cx } from '@/utils/dom';
 import { getFormattedDate } from '@/utils/dates';
 import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
-
 import {
   BaseCardProps,
   CardFooterProps,
@@ -37,10 +37,19 @@ export const CardTitle = ({
 }: CardTitleProps) => {
   const titleClassname =
     'text-lg font-bold text-gray-700 :text-gray-600  hover:underline';
+  if (!url) {
+    return (
+      <div className="mt-2 mb-auto">
+        <p className={titleClassname}>{children}</p>
+      </div>
+    );
+  }
   return (
     <div className="mt-2 mb-auto">
       {isInternalLink ? (
-        <p className={titleClassname}>{children}</p>
+        <Link to={url} className={titleClassname}>
+          {children}
+        </Link>
       ) : (
         <a
           target="_blank"
