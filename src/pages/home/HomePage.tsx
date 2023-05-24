@@ -4,14 +4,17 @@ import { GridListPaginated } from '@/components/grid-list-paginated/GridListPagi
 import { CardArticle } from '@/components/card/CardArticle/CardArticle';
 
 export const HomePage = () => {
-  const { data: itemIds } = useGetTopStories();
+  const { data: itemIds, isLoading: isLoadingStories } = useGetTopStories();
 
   const { itemList, isLoading, ref } = useGetFullItemListInfinitePagination({
     itemIds,
   });
 
   return (
-    <GridListPaginated loaderRef={ref} isLoading={isLoading}>
+    <GridListPaginated
+      loaderRef={ref}
+      isLoading={isLoadingStories || isLoading}
+    >
       {itemList.map((item) => (
         <CardArticle key={item.id} data={item} />
       ))}

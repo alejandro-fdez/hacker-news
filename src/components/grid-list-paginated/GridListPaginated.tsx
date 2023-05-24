@@ -10,8 +10,10 @@ export const GridListPaginated = ({
 }: GridListPaginatedProps) => {
   return (
     <>
-      <GridList {...restProps}>{children}</GridList>
-      <LoadingStories ref={loaderRef} isLoading={isLoading} />
+      <GridList {...restProps}>
+        {children}
+        <LoadingStories ref={loaderRef} isLoading={isLoading} />
+      </GridList>
     </>
   );
 };
