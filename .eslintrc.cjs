@@ -32,6 +32,7 @@ module.exports = {
     'no-plusplus': 0,
     'no-restricted-syntax': 0,
     'no-continue': 0,
+    'react/no-danger': 0,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'react/function-component-definition': [
       2,

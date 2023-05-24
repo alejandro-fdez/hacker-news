@@ -14,9 +14,7 @@ const fetchItem = async (itemId: ItemIdType) => {
 };
 
 export const useGetItem = (itemId: ItemIdType) => {
-  return useQuery(GET_ITEM_KEY(itemId), () => fetchItem(itemId), {
-    enabled: !!itemId,
-  });
+  return useQuery(GET_ITEM_KEY(itemId), () => fetchItem(itemId));
 };
 
 export const useGetItems = (itemIds: StoryListType | undefined = []) => {

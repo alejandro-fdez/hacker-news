@@ -16,9 +16,4 @@ export const ROUTER_DATA: RouterType[] = [
     title: 'Job Stories',
     shouldDisplay: true,
   },
-  {
-    path: '/ask',
-    title: 'Ask Stories',
-    shouldDisplay: true,
-  },
 ];

@@ -1,0 +1,12 @@
+.content {
+  @apply my-5 text-xs sm:text-base;
+}
+.content p {
+  @apply mb-6;
+}
+.content a {
+  @apply text-cyan-500;
+}
+.content a:hover {
+  text-decoration: underline;
+}

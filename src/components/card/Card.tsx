@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import { cx } from '@/utils/dom';
 import { getFormattedDate } from '@/utils/dates';
-import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
 import {
   BaseCardProps,
   CardFooterProps,
   CardHeaderProps,
   CardTitleProps,
 } from './Card.types';
+import { NumComments } from '../num-comments/NumComments';
 
 import styles from './card.module.scss';
 
@@ -67,23 +67,10 @@ export const CardTitle = ({
 export const CardFooter = ({ author, numComments }: CardFooterProps) => {
   return (
     <div className="flex items-center justify-between mt-2">
-      <a
-        href="/"
-        className="font-semibold text-gray-400 cursor-pointer text-xs "
-      >
+      <div className="font-semibold text-gray-400 cursor-pointer text-xs ">
         {author}
-      </a>
-      {typeof numComments === 'number' && (
-        <a href="/" className=" text-gray-700 relative inline-block">
-          <ChatBubbleLeftRightIcon
-            className="block h-6 w-6 stroke-blue-400"
-            aria-hidden="true"
-          />
-          <span className="absolute text-xs bottom-0 left-full">
-            {numComments}
-          </span>
-        </a>
-      )}
+      </div>
+      {typeof numComments === 'number' && <NumComments num={numComments} />}
     </div>
   );
 };
