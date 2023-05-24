@@ -5,6 +5,7 @@ import { Card, CardHeader } from '@/components/card/Card';
 import { HTMLContent } from '@/components/html-content/HTMLContent';
 import { Helmet } from 'react-helmet-async';
 import { NavigateToNotFoundPage } from '@/components/navigate-to-not-found-page/NavigateToNotFoundPage';
+import { LoadingContent } from '@/components/loading-content/LoadingContent';
 
 export const JobDetailsPage = () => {
   const { id } = useParams();
@@ -15,10 +16,10 @@ export const JobDetailsPage = () => {
   const { by, title, time, text } = (data as JobType) ?? {};
 
   return (
-    <>
-      <NavigateToNotFoundPage enabled={isFetched} />
+    <LoadingContent isLoading={isLoading}>
+      <NavigateToNotFoundPage enabled={isFetched && !data} />
       <Helmet>
-        <title>Job - {title}</title>
+        <title>Job - {title || ''}</title>
       </Helmet>
       <Card className="space-y-4">
         <CardHeader time={time} />
@@ -32,6 +33,6 @@ export const JobDetailsPage = () => {
         </div>
         <div className="flex justify-center pt-2 space-x-4 align-center" />
       </Card>
-    </>
+    </LoadingContent>
   );
 };

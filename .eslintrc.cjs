@@ -23,17 +23,18 @@ module.exports = {
     },
   },
   rules: {
-    'react-refresh/only-export-components': 'warn',
-    'react/react-in-jsx-scope': 0,
-    'react/jsx-props-no-spreading': 0,
-    'import/prefer-default-export': 'off',
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-non-null-assertion': 0,
     'no-plusplus': 0,
     'no-restricted-syntax': 0,
     'no-continue': 0,
-    'react/no-danger': 0,
+    'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'react-refresh/only-export-components': 'warn',
+    'react/no-danger': 0,
+    'react/react-in-jsx-scope': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/jsx-no-useless-fragment': 0,
     'react/function-component-definition': [
       2,
       {

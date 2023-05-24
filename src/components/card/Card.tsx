@@ -67,9 +67,7 @@ export const CardTitle = ({
 export const CardFooter = ({ author, numComments }: CardFooterProps) => {
   return (
     <div className="flex items-center justify-between mt-2">
-      <div className="font-semibold text-gray-400 cursor-pointer text-xs ">
-        {author}
-      </div>
+      <div className="font-semibold text-gray-400 text-xs ">{author}</div>
       {typeof numComments === 'number' && <NumComments num={numComments} />}
     </div>
   );

@@ -1,21 +1,16 @@
-import { forwardRef } from 'react';
+import { cx } from '@/utils/dom';
 import { Spinner } from '../spinner/Spinner';
 import { LoadingContentProps } from './LoadingContent.types';
 
-export const LoadingContent = forwardRef<HTMLDivElement, LoadingContentProps>(
-  (
-    { isLoading, iconClassName, message = 'Loading more news for you' },
-    ref
-  ) => {
-    return (
-      <div ref={ref}>
-        {isLoading && (
-          <div className="flex gap-3 items-center justify-center my-14">
-            <Spinner className={iconClassName} />{' '}
-            {message && <span>{message}</span>}
-          </div>
-        )}
-      </div>
-    );
-  }
-);
+export const LoadingContent = ({
+  className,
+  children,
+  isLoading,
+}: LoadingContentProps) => {
+  if (!isLoading) return <>{children}</>;
+  return (
+    <div className={cx(className, 'flex justify-center mt-40')}>
+      <Spinner className="w-20 h-20" />
+    </div>
+  );
+};

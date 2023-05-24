@@ -1,4 +1,4 @@
-import { LoadingContent } from '../loading-content/LoadingContent';
+import { LoadingStories } from '../loading-stories/LoadingStories';
 import { GridListPaginatedProps } from './GridListPaginated.types';
 import { GridList } from '../grid-list/GridList';
 
@@ -11,7 +11,7 @@ export const GridListPaginated = ({
   return (
     <>
       <GridList {...restProps}>{children}</GridList>
-      <LoadingContent ref={loaderRef} isLoading={isLoading} />
+      <LoadingStories ref={loaderRef} isLoading={isLoading} />
     </>
   );
 };

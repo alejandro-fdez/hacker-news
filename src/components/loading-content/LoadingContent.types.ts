@@ -1,5 +1,5 @@
-export type LoadingContentProps = {
+import { WithBasicProps } from '@/types/component.types';
+
+export type LoadingContentProps = WithBasicProps & {
   isLoading: boolean | undefined;
-  iconClassName?: string;
-  message?: string;
 };
