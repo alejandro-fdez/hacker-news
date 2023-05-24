@@ -17,4 +17,9 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
   },
+  css: {
+    modules: {
+      localsConvention: 'dashesOnly',
+    },
+  },
 });

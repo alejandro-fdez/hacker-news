@@ -1,49 +1,80 @@
-import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
 import { cx } from '@/utils/dom';
-import { CardProps } from './Card.types';
+import { getFormattedDate } from '@/utils/dates';
+import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
 
-export const Card = ({ className, data }: CardProps) => {
-  const { title, type, by, time, kids, url } = data;
+import {
+  BaseCardProps,
+  CardFooterProps,
+  CardHeaderProps,
+  CardTitleProps,
+} from './Card.types';
+
+import styles from './card.module.scss';
+
+export const Card = ({ className, children }: BaseCardProps) => {
+  return <div className={cx(className, styles.card)}>{children}</div>;
+};
+
+export const CardHeader = ({ time, type }: CardHeaderProps) => {
   return (
-    <div
-      className={cx(
-        className,
-        'w-full flex flex-col max-w-2xl px-8 py-4 mx-auto bg-white rounded-lg shadow-md border-gray-100 border-solid border'
-      )}
-    >
-      <div className="flex items-center justify-between">
-        <span className="text-sm font-light text-gray-600 ">{time}</span>
+    <div className="flex items-center justify-between">
+      <span className="text-sm font-light text-gray-600 ">
+        {getFormattedDate(time)}
+      </span>
+      {type && (
         <div className="px-3 py-1 text-xs font-semibold text-white bg-gray-500 rounded cursor-none">
           {type}
         </div>
-      </div>
-      <div className="mt-2 mb-auto">
+      )}
+    </div>
+  );
+};
+
+export const CardTitle = ({
+  children,
+  url,
+  isInternalLink,
+}: CardTitleProps) => {
+  const titleClassname =
+    'text-lg font-bold text-gray-700 :text-gray-600  hover:underline';
+  return (
+    <div className="mt-2 mb-auto">
+      {isInternalLink ? (
+        <p className={titleClassname}>{children}</p>
+      ) : (
         <a
           target="_blank"
           href={url}
-          className="text-lg font-bold text-gray-700 :text-gray-600  hover:underline"
+          className={titleClassname}
           rel="noreferrer"
         >
-          {title}
+          {children}
         </a>
-      </div>
-      <div className="flex items-center justify-between mt-2">
-        <a
-          href="/"
-          className="font-semibold text-gray-400 cursor-pointer text-xs "
-        >
-          {by}
-        </a>
+      )}
+    </div>
+  );
+};
+
+export const CardFooter = ({ author, numComments }: CardFooterProps) => {
+  return (
+    <div className="flex items-center justify-between mt-2">
+      <a
+        href="/"
+        className="font-semibold text-gray-400 cursor-pointer text-xs "
+      >
+        {author}
+      </a>
+      {typeof numComments === 'number' && (
         <a href="/" className=" text-gray-700 relative inline-block">
           <ChatBubbleLeftRightIcon
             className="block h-6 w-6 stroke-blue-400"
             aria-hidden="true"
           />
           <span className="absolute text-xs bottom-0 left-full">
-            {kids?.length ?? 0}
+            {numComments}
           </span>
         </a>
-      </div>
+      )}
     </div>
   );
 };

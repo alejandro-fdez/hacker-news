@@ -45,7 +45,7 @@ export const useGetItems = (itemIds: StoryListType | undefined = []) => {
 
 export const useGetFullItemListInfinitePagination = ({
   itemIds = [],
-  numItems = 10,
+  numItems = 21,
 }: {
   itemIds: StoryListType | undefined;
   numItems?: number;

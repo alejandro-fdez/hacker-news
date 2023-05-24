@@ -1,20 +1,19 @@
 import { useGetTopStories } from '@/api/useGetTopStories';
 import { useGetFullItemListInfinitePagination } from '@/api/useGetItem';
-import { Card } from '@/components/card/Card';
 import { GridListPaginated } from '@/components/grid-list-paginated/GridListPaginated';
+import { CardArticle } from '@/components/card/CardArticle/CardArticle';
 
 export const HomePage = () => {
   const { data: itemIds } = useGetTopStories();
 
   const { itemList, isLoading, ref } = useGetFullItemListInfinitePagination({
     itemIds,
-    numItems: 20,
   });
 
   return (
     <GridListPaginated loaderRef={ref} isLoading={isLoading}>
       {itemList.map((item) => (
-        <Card key={item.id} data={item} />
+        <CardArticle key={item.id} data={item} />
       ))}
     </GridListPaginated>
   );
