@@ -4,23 +4,19 @@ import { useQueries, useQuery } from '@tanstack/react-query';
 import { ItemFullType, ItemIdType, StoryListType } from '@/types/api.types';
 import { useInfinitePaginationController } from '@/hooks/useInfinitePaginationController';
 
-export const GET_ITEM_KEY = (itemId: ItemIdType) => ['GET_ITEM', itemId];
+export const GET_ITEM_KEY = (itemId: ItemIdType) => ['GET_ITEM', `${itemId}`];
 
-const fetchItem = (itemId: ItemIdType) =>
-  axios.get<ItemFullType>(
+const fetchItem = async (itemId: ItemIdType) => {
+  const { data } = await axios.get<ItemFullType | null>(
     `https://hacker-news.firebaseio.com/v0/item/${itemId}.json`
   );
+  return data;
+};
 
 export const useGetItem = (itemId: ItemIdType) => {
-  return useQuery(
-    GET_ITEM_KEY(itemId),
-    async () => {
-      const { data } = await fetchItem(itemId);
-
-      return data ?? {};
-    },
-    { enabled: !!itemId }
-  );
+  return useQuery(GET_ITEM_KEY(itemId), () => fetchItem(itemId), {
+    enabled: !!itemId,
+  });
 };
 
 export const useGetItems = (itemIds: StoryListType | undefined = []) => {
@@ -37,7 +33,7 @@ export const useGetItems = (itemIds: StoryListType | undefined = []) => {
       ? useGetItemList.every((query) => query.isFetched)
       : false;
     const data = isFetched
-      ? useGetItemList.map(({ data: dataQuery }) => dataQuery!.data)
+      ? useGetItemList.map(({ data: dataQuery }) => dataQuery!).filter(Boolean)
       : [];
     return { isLoading, isFetched, data };
   }, [useGetItemList]);

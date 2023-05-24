@@ -4,14 +4,17 @@ import { CardJob } from '@/components/card/CardJob/CardJob';
 import { GridListPaginated } from '@/components/grid-list-paginated/GridListPaginated';
 
 export const JobPage = () => {
-  const { data: itemIds } = useGetJobStories();
+  const { data: itemIds, isLoading: isLoadingStories } = useGetJobStories();
 
   const { itemList, isLoading, ref } = useGetFullItemListInfinitePagination({
     itemIds,
   });
 
   return (
-    <GridListPaginated loaderRef={ref} isLoading={isLoading}>
+    <GridListPaginated
+      loaderRef={ref}
+      isLoading={isLoadingStories || isLoading}
+    >
       {itemList.map((item) => (
         <CardJob key={item.id} data={item} />
       ))}
