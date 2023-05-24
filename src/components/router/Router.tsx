@@ -5,6 +5,8 @@ import {
 } from 'react-router-dom';
 import { HomePage } from '@/pages/home/HomePage';
 import { NewsPage } from '@/pages/news/NewsPage';
+import { JobPage } from '@/pages/job/JobPage';
+import { AskPage } from '@/pages/ask/AskPage';
 import { DefaultLayout } from '@/components/layout/default-layout/DefaultLayout';
 
 export const getAppRouter = () => {
@@ -12,7 +14,9 @@ export const getAppRouter = () => {
     createRoutesFromElements(
       <Route path="/" element={<DefaultLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="news" element={<NewsPage />} />
+        <Route path="new" element={<NewsPage />} />
+        <Route path="job" element={<JobPage />} />
+        <Route path="ask" element={<AskPage />} />
       </Route>
     )
   );

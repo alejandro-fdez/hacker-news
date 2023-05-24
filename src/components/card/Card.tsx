@@ -3,7 +3,7 @@ import { cx } from '@/utils/dom';
 import { CardProps } from './Card.types';
 
 export const Card = ({ className, data }: CardProps) => {
-  const { title, type, by, time, kids } = data;
+  const { title, type, by, time, kids, url } = data;
   return (
     <div
       className={cx(
@@ -19,8 +19,10 @@ export const Card = ({ className, data }: CardProps) => {
       </div>
       <div className="mt-2 mb-auto">
         <a
-          href="https://stackdiary.com/"
+          target="_blank"
+          href={url}
           className="text-lg font-bold text-gray-700 :text-gray-600  hover:underline"
+          rel="noreferrer"
         >
           {title}
         </a>

@@ -7,8 +7,18 @@ export const ROUTER_DATA: RouterType[] = [
     shouldDisplay: false,
   },
   {
-    path: '/news',
+    path: '/new',
     title: 'New Stories',
+    shouldDisplay: true,
+  },
+  {
+    path: '/job',
+    title: 'Job Stories',
+    shouldDisplay: true,
+  },
+  {
+    path: '/ask',
+    title: 'Ask Stories',
     shouldDisplay: true,
   },
 ];
