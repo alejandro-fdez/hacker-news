@@ -8,9 +8,12 @@ describe('App', () => {
 
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
   });
-  it('Renders NavBar', () => {
+  it('Renders Header and Navbar desktop and mobile', () => {
     render(<App />);
 
+    expect(
+      screen.getByRole('banner', { name: 'Main header' })
+    ).toBeInTheDocument();
     expect(
       screen.getByRole('navigation', { name: 'Main navigation' })
     ).toBeInTheDocument();

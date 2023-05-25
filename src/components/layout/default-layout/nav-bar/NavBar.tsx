@@ -10,8 +10,8 @@ export const NavBar = () => {
   const { getIsCurrentPage } = useRouter();
   return (
     <Disclosure
-      as="nav"
-      aria-label="Main navigation"
+      as="header"
+      aria-label="Main header"
       className="bg-gradient-to-r from-primary-red to-primary-red-dark pb-2 shadow-sm sticky top-0 z-10"
     >
       {({ open }) => (
@@ -31,13 +31,15 @@ export const NavBar = () => {
                     )}
                   </Disclosure.Button>
                 </div>
-                <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <nav
+                  className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+                  aria-label="Main navigation"
+                >
                   <div className="flex flex-shrink-0 items-center">
                     <Disclosure.Button
                       as={Link}
                       to="/"
                       className="text-[1.9rem]"
-                      disabled={!open}
                     >
                       <strong className="text-transparent bg-clip-text bg-gradient-to-r from-primary-red to-primary-red-dark">
                         Hacker
@@ -53,6 +55,7 @@ export const NavBar = () => {
                           <Link
                             key={item.title}
                             to={item.path}
+                            role="menuitem"
                             className={cx(
                               'rounded-md px-3 py-2 text-sm font-medium',
                               {
@@ -69,12 +72,15 @@ export const NavBar = () => {
                       })}
                     </div>
                   </div>
-                </div>
+                </nav>
               </div>
             </div>
           </div>
           <Disclosure.Panel className="sm:hidden absolute h-screen w-full bg-gray-700 overscroll-none mt-2">
-            <div className="flex flex-col px-4 py-4">
+            <nav
+              className="flex flex-col px-4 py-4"
+              aria-label="Main navigation mobile"
+            >
               {NAV_BAR_ITEMS.map((item) => {
                 const isActive = getIsCurrentPage(item.path);
                 return (
@@ -82,6 +88,7 @@ export const NavBar = () => {
                     <Disclosure.Button
                       as={Link}
                       to={item.path}
+                      role="menuitem"
                       className={cx(
                         {
                           'bg-black/30': isActive,
@@ -96,7 +103,7 @@ export const NavBar = () => {
                   </div>
                 );
               })}
-            </div>
+            </nav>
           </Disclosure.Panel>
         </>
       )}

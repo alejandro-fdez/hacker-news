@@ -3,7 +3,7 @@ import { cx } from '@/utils/dom';
 
 export const Spinner = ({ className }: PropsWithClassName) => {
   return (
-    <div role="status" className="inline-block">
+    <div role="status" aria-label="Loading content" className="inline-block">
       <svg
         aria-hidden="true"
         className={cx(
@@ -23,7 +23,6 @@ export const Spinner = ({ className }: PropsWithClassName) => {
           fill="currentFill"
         />
       </svg>
-      <span className="sr-only">Loading...</span>
     </div>
   );
 };

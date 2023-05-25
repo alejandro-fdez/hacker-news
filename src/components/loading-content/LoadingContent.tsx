@@ -9,7 +9,12 @@ export const LoadingContent = ({
 }: LoadingContentProps) => {
   if (!isLoading) return <>{children}</>;
   return (
-    <div className={cx(className, 'flex justify-center mt-40')}>
+    <div
+      className={cx(className, 'flex justify-center mt-40')}
+      aria-label="Loading content"
+      aria-busy="true"
+      aria-live="assertive"
+    >
       <Spinner className="w-20 h-20" />
     </div>
   );
