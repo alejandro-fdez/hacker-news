@@ -8,6 +8,10 @@
   --primary-red-dark: #da5700;
 }
 
+body {
+  @apply bg-gray-100;
+}
+
 h1 {
   @apply mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl;
 }

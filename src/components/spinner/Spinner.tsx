@@ -8,7 +8,7 @@ export const Spinner = ({ className }: PropsWithClassName) => {
         aria-hidden="true"
         className={cx(
           className,
-          'inline w-10 h-10 mr-2 text-gray-100 animate-spin fill-primary-red'
+          'inline w-10 h-10 mr-2 text-gray-200 animate-spin fill-primary-red'
         )}
         viewBox="0 0 100 101"
         fill="none"

@@ -15,7 +15,13 @@ export const DefaultLayout = () => {
       <div>
         <NavBar />
         <Container className="py-5">
-          {title && <h1>{title}</h1>}
+          {title && (
+            <h1>
+              <strong className="bg-gradient-to-r from-primary-red via-primary-red-dark to-primary-red bg-[length:100%_5px] bg-no-repeat bg-bottom">
+                {title}
+              </strong>
+            </h1>
+          )}
           <Outlet />
         </Container>
       </div>
