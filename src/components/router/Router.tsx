@@ -1,6 +1,7 @@
 import {
   Navigate,
   Route,
+  Routes,
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
@@ -11,9 +12,9 @@ import { JobPage } from '@/pages/job/JobPage';
 import { JobDetailsPage } from '@/pages/job-details/JobDeatilsPage';
 import { NotFoundPage } from '@/pages/not-found/NotFoundPage';
 
-export const getAppRouter = () => {
-  return createBrowserRouter(
-    createRoutesFromElements(
+export const AppRouter = () => {
+  return (
+    <Routes>
       <Route element={<DefaultLayout />}>
         <Route path="/">
           <Route index element={<HomePage />} />
@@ -26,6 +27,6 @@ export const getAppRouter = () => {
           <Route path="*" element={<Navigate replace to="/404" />} />
         </Route>
       </Route>
-    )
+    </Routes>
   );
 };
