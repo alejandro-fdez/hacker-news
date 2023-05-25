@@ -10,6 +10,9 @@ This project will show a basic SPA aiming a basic rebranding of [HackerNews webs
 It only contains 3 main pages to display **Top**, **New** and **Job stories**, with the possibility of clicking
 on the jobs on the "Jobs page" when they don't have an external link to link to.
 
+## Live preview of the repo
+https://hacker-news-ten-tau.vercel.app/
+
 ## Technologies
 
 ![Vite](https://img.shields.io/badge/build-vite-A855F7?style=flat&logo=vite)
