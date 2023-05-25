@@ -9,7 +9,7 @@ import {
 } from './Card.types';
 import { NumComments } from '../num-comments/NumComments';
 
-import styles from './card.module.scss';
+import styles from './card.module.css';
 
 export const Card = ({ className, children }: BaseCardProps) => {
   return <article className={cx(className, styles.card)}>{children}</article>;
