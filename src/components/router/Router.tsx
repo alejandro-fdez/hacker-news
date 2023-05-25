@@ -27,6 +27,6 @@ export const getAppRouter = () => {
         </Route>
       </Route>
     ),
-    { basename: '/hacker-news/' }
+    { basename: '/hacker-news' }
   );
 };
