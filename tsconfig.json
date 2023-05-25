@@ -30,6 +30,7 @@
     "tailwind.config.js",
     "tests/setup.ts",
     "vite.config.ts",
+    ".lintstagedrc.cjs",
     ".eslintrc.cjs",
     "src"
   ],
