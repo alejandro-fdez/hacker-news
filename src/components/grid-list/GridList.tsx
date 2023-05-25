@@ -6,7 +6,7 @@ export const GridList = ({ children, className }: GridListProps) => {
     <div
       className={cx(
         className,
-        'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-7 gap-6'
+        'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-7'
       )}
     >
       {children}
