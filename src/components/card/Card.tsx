@@ -12,7 +12,7 @@ import { NumComments } from '../num-comments/NumComments';
 import styles from './card.module.scss';
 
 export const Card = ({ className, children }: BaseCardProps) => {
-  return <div className={cx(className, styles.card)}>{children}</div>;
+  return <article className={cx(className, styles.card)}>{children}</article>;
 };
 
 export const CardHeader = ({ time, type }: CardHeaderProps) => {

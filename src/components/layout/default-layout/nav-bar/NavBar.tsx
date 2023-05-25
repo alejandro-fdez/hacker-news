@@ -10,7 +10,8 @@ export const NavBar = () => {
   const { getIsCurrentPage } = useRouter();
   return (
     <Disclosure
-      as="div"
+      as="nav"
+      aria-label="Main navigation"
       className="bg-gradient-to-r from-primary-red to-primary-red-dark pb-2 shadow-sm sticky top-0 z-10"
     >
       {({ open }) => (
