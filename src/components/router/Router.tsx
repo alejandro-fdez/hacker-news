@@ -27,6 +27,6 @@ export const getAppRouter = () => {
         </Route>
       </Route>
     ),
-    { basename: import.meta.env.VITE_PROJECT_BASENAME }
+    { basename: '/hacker-news/' }
   );
 };

@@ -22,5 +22,5 @@ export default defineConfig({
       localsConvention: 'dashesOnly',
     },
   },
-  base: process.env.VITE_PROJECT_BASENAME,
+  base: '/hacker-news/',
 });
