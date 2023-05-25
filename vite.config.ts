@@ -22,5 +22,5 @@ export default defineConfig({
       localsConvention: 'dashesOnly',
     },
   },
-  base: '/hacker-news',
+  base: '/hacker-news/',
 });
