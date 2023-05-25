@@ -59,7 +59,7 @@ on the jobs on the "Jobs page" when they don't have an external link to link to.
 
 ## API Documentation
 
-The project uses a couple of available [API urls from HackerNews]([https://github.com/nrabhiram/vite-react-ts-tailwind-template/issues/new](https://github.com/HackerNews/API)) or create a PR if you'd like to contribute 🙌
+The project makes use of available [API urls on HackerNews repo](https://news.ycombinator.com/news)
 
 ## License
 
