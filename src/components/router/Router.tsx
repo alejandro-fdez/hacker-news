@@ -1,10 +1,4 @@
-import {
-  Navigate,
-  Route,
-  Routes,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { DefaultLayout } from '@/components/layout/default-layout/DefaultLayout';
 import { HomePage } from '@/pages/home/HomePage';
 import { NewsPage } from '@/pages/news/NewsPage';
