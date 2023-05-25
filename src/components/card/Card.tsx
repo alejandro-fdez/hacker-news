@@ -17,8 +17,8 @@ export const Card = ({ className, children }: BaseCardProps) => {
 
 export const CardHeader = ({ time, type }: CardHeaderProps) => {
   return (
-    <div className="flex items-center justify-between">
-      <span className="text-sm font-light text-gray-600 ">
+    <div className="flex items-center justify-between text-xs">
+      <span className="text-xs font-light text-gray-600 sm:text-sm">
         {getFormattedDate(time)}
       </span>
       {type && (
@@ -35,8 +35,7 @@ export const CardTitle = ({
   url,
   isInternalLink,
 }: CardTitleProps) => {
-  const titleClassname =
-    'text-lg font-bold text-gray-700 :text-gray-600  hover:underline';
+  const titleClassname = 'text-lg font-bold text-gray-700 hover:underline';
   if (!url) {
     return (
       <div className="mt-2 mb-auto">
