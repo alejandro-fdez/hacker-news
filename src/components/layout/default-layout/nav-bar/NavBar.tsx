@@ -40,6 +40,7 @@ export const NavBar = () => {
                       as={Link}
                       to="/"
                       className="text-[1.9rem]"
+                      disabled={!open}
                     >
                       <strong className="text-transparent bg-clip-text bg-gradient-to-r from-primary-red to-primary-red-dark">
                         Hacker
