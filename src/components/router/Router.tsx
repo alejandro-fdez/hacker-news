@@ -26,6 +26,7 @@ export const getAppRouter = () => {
           <Route path="*" element={<Navigate replace to="/404" />} />
         </Route>
       </Route>
-    )
+    ),
+    { basename: '/hacker-news' }
   );
 };
